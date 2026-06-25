@@ -11,40 +11,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="Beaconify Limited home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="20" fill="#1e3a8a" />
-            <circle cx="20" cy="20" r="12" stroke="white" stroke-width="2.5" fill="none" />
-            <circle cx="20" cy="20" r="4" fill="white" />
-          </svg>
-        </span>
-        <span class="brand-text">
-          <strong>Beaconify</strong>
-          <small>Limited</small>
-        </span>
-      </a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#programs">Programs</a>
-        <a href="#services">Services</a>
-        <a href="#stories">Testimonials</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="header-cta" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
-        Register now
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Beaconify Limited home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="currentColor" />
+              <circle cx="20" cy="20" r="12" stroke="white" stroke-width="2" fill="none" />
+              <circle cx="20" cy="20" r="3.5" fill="white" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>Beaconify</strong>
+            <small>Limited</small>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#programs">Programs</a>
+          <a href="#services">Services</a>
+          <a href="#stories">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="header-cta" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
+          Register now
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <nav class="mobile-nav" aria-label="Mobile navigation">
@@ -58,42 +59,38 @@
 
     <main id="home">
       <section class="hero">
-        <div class="hero-inner">
+        <div class="container hero-inner">
           <div class="hero-content">
-            <p class="hero-badge">
-              <span class="badge-icon" aria-hidden="true">🎓</span>
-              🌟 Trusted Education Consultants
-            </p>
+            <p class="eyebrow">Trusted education consultants</p>
             <h1>
-              <span class="line">We Handle Your</span>
-              <span class="line accent">Admission,</span>
-              <span class="line">You Just Pack</span>
+              We handle your <em>admission,</em><br />
+              you just pack.
             </h1>
-            <div class="hero-copy">
-              <p>End-to-end education consulting for study abroad success.</p>
-              <p class="hero-copy-accent">From SOPs to deadlines — everything is done for you. ✨</p>
-            </div>
-            <div class="trusted-countries">
-              <span class="trusted-label">📍 Trusted in:</span>
-              <div class="country-chips">
-                <span>🇬🇧 UK</span>
-                <span>🇺🇸 USA</span>
-                <span>🇨🇦 Canada</span>
-                <span>🇦🇺 Australia</span>
-                <span>🇮🇪 Ireland</span>
-                <span>🇲🇹 Malta</span>
-              </div>
+            <p class="lead">
+              End-to-end study abroad consulting — from university selection and SOPs to visa preparation and
+              departure.
+            </p>
+            <div class="hero-meta">
+              <span class="meta-label">Trusted destinations</span>
+              <ul class="destination-list">
+                <li>United Kingdom</li>
+                <li>United States</li>
+                <li>Canada</li>
+                <li>Australia</li>
+                <li>Ireland</li>
+                <li>Malta</li>
+              </ul>
             </div>
             <div class="hero-actions">
               <a class="button primary" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
-                🚀 Register now
+                Start application
               </a>
-              <a class="button outline" href="#programs">Explore Programs</a>
+              <a class="button ghost" href="#programs">Explore programs</a>
             </div>
             <dl class="hero-stats">
               <div>
                 <dt>500+</dt>
-                <dd>Students Placed</dd>
+                <dd>Students placed</dd>
               </div>
               <div>
                 <dt>6</dt>
@@ -101,371 +98,312 @@
               </div>
               <div>
                 <dt>98%</dt>
-                <dd>Success Rate</dd>
+                <dd>Success rate</dd>
               </div>
             </dl>
           </div>
 
           <div class="hero-visual">
-            <div class="hero-card">
-              <div class="hero-card-head">
-                <div>
-                  <h2>Watch Success Stories</h2>
-                  <p>See how we've helped students like you</p>
-                </div>
-                <button class="play-btn" type="button" aria-label="Play success stories">▶</button>
-              </div>
-              <div class="hero-notices">
-                <div class="notice notice-success">✅ Just Got Accepted!<br /><strong>University of Toronto</strong></div>
-                <div class="notice notice-visa">🎓 Visa Approved!<br /><strong>Ready to fly ✈️</strong></div>
-              </div>
+            <div class="hero-frame">
               <img
-                class="hero-image"
                 src="/hero-campaign.png"
-                alt="Beaconify campaign — We Handle Your Admission, You Just Pack"
+                alt="Beaconify study abroad campaign"
                 width="592"
                 height="740"
               />
             </div>
+            <aside class="hero-proof" aria-label="Recent outcomes">
+              <div class="proof-item">
+                <span class="proof-label">Accepted</span>
+                <strong>University of Toronto</strong>
+                <small>Master's program, Canada</small>
+              </div>
+              <div class="proof-item">
+                <span class="proof-label">Visa approved</span>
+                <strong>Ready for departure</strong>
+                <small>Full document support</small>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
       <section class="services" id="services" aria-labelledby="services-title">
-        <div class="section-head">
-          <p class="eyebrow">Our Services</p>
-          <h2 id="services-title">What We Do</h2>
-          <p>
-            We are an end-to-end value-driven company where we help students thrive with expert solutions and
-            unwavering support throughout their study abroad journey.
-          </p>
-        </div>
-        <p class="services-subhead">Your Success Journey Starts Here</p>
-        <p class="services-note">Study at world-renowned universities across 6 countries</p>
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Our services</p>
+            <h2 id="services-title">Everything handled, end to end</h2>
+            <p>
+              One coordinated team for matching, applications, counseling, visas, scholarships, and arrival — so
+              nothing falls through the cracks.
+            </p>
+          </div>
 
-        <div class="service-grid">
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>University Matching</h3>
-            <p>
-              We match you with the perfect universities based on your profile, goals, and preferences across our
-              trusted destinations.
-            </p>
-          </article>
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>Application Support</h3>
-            <p>
-              Complete application assistance including forms, documentation, and submission tracking to ensure nothing
-              is missed.
-            </p>
-          </article>
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>Personal Counseling</h3>
-            <p>
-              One-on-one guidance from experienced counselors who understand the unique challenges of studying abroad.
-            </p>
-          </article>
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>Visa Assistance</h3>
-            <p>
-              Expert visa guidance and support to navigate the complex requirements for your chosen destination country.
-            </p>
-          </article>
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>Scholarship Guidance</h3>
-            <p>
-              Identify and apply for scholarships and financial aid opportunities to make your education more
-              affordable.
-            </p>
-          </article>
-          <article>
-            <span class="service-rate">Success Rate 98%</span>
-            <h3>End-to-End Support</h3>
-            <p>
-              From initial consultation to arrival at your destination — we're with you every step of the journey.
-            </p>
-          </article>
-        </div>
+          <div class="service-grid">
+            <article>
+              <span class="service-index">01</span>
+              <h3>University matching</h3>
+              <p>Shortlists built around your profile, goals, budget, and realistic admission chances.</p>
+            </article>
+            <article>
+              <span class="service-index">02</span>
+              <h3>Application support</h3>
+              <p>Forms, documentation, submission tracking, and follow-ups managed on your behalf.</p>
+            </article>
+            <article>
+              <span class="service-index">03</span>
+              <h3>Personal counseling</h3>
+              <p>One-on-one guidance from counselors who understand the study abroad process in depth.</p>
+            </article>
+            <article>
+              <span class="service-index">04</span>
+              <h3>Visa assistance</h3>
+              <p>Country-specific document checks and interview preparation before you submit.</p>
+            </article>
+            <article>
+              <span class="service-index">05</span>
+              <h3>Scholarship guidance</h3>
+              <p>Identify and apply for funding opportunities that fit your profile and destination.</p>
+            </article>
+            <article>
+              <span class="service-index">06</span>
+              <h3>End-to-end support</h3>
+              <p>From first consultation through arrival — consistent support at every stage.</p>
+            </article>
+          </div>
 
-        <div class="trust-banner">
-          <span>✨ Trusted by students in 6 countries worldwide</span>
+          <dl class="stats-row">
+            <div><dt>500+</dt><dd>Students placed</dd></div>
+            <div><dt>100+</dt><dd>Partner universities</dd></div>
+            <div><dt>6</dt><dd>Countries</dd></div>
+            <div><dt>98%</dt><dd>Success rate</dd></div>
+          </dl>
         </div>
-
-        <dl class="stats-row">
-          <div><dt>500+</dt><dd>Happy Students</dd></div>
-          <div><dt>100+</dt><dd>Partner Universities</dd></div>
-          <div><dt>6</dt><dd>Countries</dd></div>
-          <div><dt>98%</dt><dd>Success Rate</dd></div>
-        </dl>
       </section>
 
       <section class="destinations" id="programs" aria-labelledby="destinations-title">
-        <div class="section-head">
-          <p class="eyebrow">Programs</p>
-          <h2 id="destinations-title">Your Success Journey Starts Here</h2>
-          <p>Study at world-renowned universities across 6 countries</p>
-        </div>
-        <div class="country-tabs" role="tablist" aria-label="Study destinations">
-          <button class="country-tab active" type="button" role="tab" aria-selected="true" data-country="uk">🇬🇧 UK Universities</button>
-          <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="usa">🇺🇸 USA Universities</button>
-          <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="canada">🇨🇦 Canada Universities</button>
-          <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="australia">🇦🇺 Australia Universities</button>
-          <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="ireland">🇮🇪 Ireland Universities</button>
-          <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="malta">🇲🇹 Malta Universities</button>
-        </div>
-        <div class="country-showcase">
-          <img
-            id="country-image"
-            src="https://images.unsplash.com/photo-1707065634977-ad779c889242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxveGZvcmQlMjB1bml2ZXJzaXR5JTIwY2FtcHVzJTIwVUt8ZW58MXx8fHwxNzU4MDE2OTYzfDA&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Oxford University campus UK"
-            width="1248"
-            height="320"
-          />
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Programs</p>
+            <h2 id="destinations-title">Study at leading universities worldwide</h2>
+            <p>Focused guidance across six trusted destinations, with clear requirements for each market.</p>
+          </div>
+          <div class="country-tabs" role="tablist" aria-label="Study destinations">
+            <button class="country-tab active" type="button" role="tab" aria-selected="true" data-country="uk">United Kingdom</button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="usa">United States</button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="canada">Canada</button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="australia">Australia</button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="ireland">Ireland</button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="malta">Malta</button>
+          </div>
+          <div class="country-showcase">
+            <img
+              id="country-image"
+              src="https://images.unsplash.com/photo-1707065634977-ad779c889242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxveGZvcmQlMjB1bml2ZXJzaXR5JTIwY2FtcHVzJTIwVUt8ZW58MXx8fHwxNzU4MDE2OTYzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Oxford University campus, United Kingdom"
+              width="1248"
+              height="420"
+            />
+          </div>
         </div>
       </section>
 
       <section class="writing" id="writing" aria-labelledby="writing-title">
-        <div class="writing-inner">
+        <div class="container writing-inner">
           <div class="writing-intro">
-          <p class="eyebrow">Academic Excellence</p>
-          <h2 id="writing-title">Expert Writing &amp; Academic Solutions</h2>
-          <p>
-            From coming up with a project topic to complete project work — we provide comprehensive academic writing
-            support to ensure your success.
-          </p>
-          <div class="writing-actions">
-            <a class="button primary" href="https://forms.gle/zTTw3CATNS2Hwibs6" target="_blank" rel="noopener noreferrer">
-              Get Writing Support
-            </a>
-            <a class="button outline" href="#contact">View Sample Work</a>
-          </div>
-          <dl class="writing-stats">
-            <div><dt>1,200+</dt><dd>Projects Completed</dd></div>
-            <div><dt>95%</dt><dd>Success Rate</dd></div>
-            <div><dt>24/7</dt><dd>Support Available</dd></div>
-          </dl>
-        </div>
-        <div class="writing-grid">
-          <article>
-            <h3>Coursework &amp; Assignments</h3>
-            <p>Professional assistance with essays, reports, and academic assignments tailored to your institution's requirements.</p>
-          </article>
-          <article>
-            <h3>Proposal Writing</h3>
-            <p>Expert help crafting compelling research proposals, project proposals, and grant applications.</p>
-          </article>
-          <article>
-            <h3>Data Analysis</h3>
-            <p>Comprehensive data analysis services using statistical tools and methodologies for your research projects.</p>
-          </article>
-          <article>
-            <h3>Project Writing</h3>
-            <p>Complete project documentation from initial concept to final submission with professional formatting.</p>
-          </article>
-          <article>
-            <h3>Research Support</h3>
-            <p>End-to-end research assistance from topic development to literature review and methodology design.</p>
-          </article>
-          <article>
-            <h3>Topic Development</h3>
-            <p>Creative brainstorming and topic refinement to help you identify compelling research questions and project ideas.</p>
-          </article>
-        </div>
-        <div class="writing-media">
-          <img
-            src="https://images.unsplash.com/photo-1731983568664-9c1d8a87e7a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2FkZW1pYyUyMHdyaXRpbmclMjByZXNlYXJjaCUyMGJvb2tzfGVufDF8fHx8MTc1NzkzNDU3MHww&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Academic writing and research support"
-            width="592"
-            height="320"
-          />
-          <div class="team-card">
-            <img
-              src="https://images.unsplash.com/photo-1745970649957-b4b1f7fde4ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0ZWFtJTIwbWVldGluZyUyMG9mZmljZSUyMHRhYmxlfGVufDF8fHx8MTc1ODAxNjk1OXww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Professional support team"
-              width="592"
-              height="256"
-            />
-            <div>
-              <strong>Professional Support Team</strong>
-              <p>Expert consultants working together for your success</p>
+            <p class="eyebrow">Academic support</p>
+            <h2 id="writing-title">Writing and research support for serious submissions</h2>
+            <p>
+              Structured help with coursework, proposals, analysis, project documentation, and research — delivered
+              to institutional standards.
+            </p>
+            <div class="writing-actions">
+              <a class="button primary" href="https://forms.gle/zTTw3CATNS2Hwibs6" target="_blank" rel="noopener noreferrer">
+                Get writing support
+              </a>
+              <a class="button ghost" href="#contact">Request consultation</a>
             </div>
+            <dl class="inline-stats">
+              <div><dt>1,200+</dt><dd>Projects completed</dd></div>
+              <div><dt>95%</dt><dd>Success rate</dd></div>
+              <div><dt>24/7</dt><dd>Support available</dd></div>
+            </dl>
           </div>
-        </div>
+          <div class="writing-grid">
+            <article>
+              <h3>Coursework &amp; assignments</h3>
+              <p>Essays, reports, and assignments tailored to your institution's requirements.</p>
+            </article>
+            <article>
+              <h3>Proposal writing</h3>
+              <p>Research proposals, project proposals, and grant applications.</p>
+            </article>
+            <article>
+              <h3>Data analysis</h3>
+              <p>Statistical tools and methodologies applied to your research projects.</p>
+            </article>
+            <article>
+              <h3>Project writing</h3>
+              <p>Documentation from initial concept through final submission.</p>
+            </article>
+            <article>
+              <h3>Research support</h3>
+              <p>Topic development, literature review, and methodology design.</p>
+            </article>
+            <article>
+              <h3>Topic development</h3>
+              <p>Refine research questions and project direction before you begin.</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="stories" id="stories" aria-labelledby="stories-title">
-        <div class="section-head">
-          <p class="eyebrow">Student Success Stories</p>
-          <h2 id="stories-title">Success Stories from Students Like You</h2>
-          <p>
-            Join thousands of students who have achieved their study abroad dreams with Beaconify's expert guidance and
-            support.
-          </p>
-        </div>
-        <div class="stories-banner">
-          <img
-            src="https://images.unsplash.com/photo-1591218214141-45545921d2d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHN0dWRlbnRzJTIwY2VsZWJyYXRpbmclMjBncmFkdWF0aW9ufGVufDF8fHx8MTc1ODAxMjQ4OXww&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Happy graduating students celebrating"
-            width="1248"
-            height="384"
-          />
-        </div>
-        <div class="testimonial-carousel">
-          <button class="carousel-btn prev" type="button" aria-label="Previous testimonial">‹</button>
-          <div class="testimonial-track" aria-live="polite">
-            <article class="testimonial-card active">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “Beaconify made my dream of studying in Canada a reality. They handled everything from university
-                selection to visa processing. I couldn't have done it without their expert guidance!”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇨🇦</span>
-                <div>
-                  <strong>Sarah Johnson</strong>
-                  <small>Master's in Computer Science</small>
-                  <small>University of Toronto, Canada</small>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “The writing support team helped me craft an outstanding SOP that got me into my dream MBA program.
-                Their attention to detail and personalized approach was exceptional.”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇦🇺</span>
-                <div>
-                  <strong>Michael Chen</strong>
-                  <small>MBA Program</small>
-                  <small>University of Melbourne, Australia</small>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “From application to arrival, Beaconify was with me every step of the way. They even helped me secure a
-                scholarship that covered 60% of my tuition fees!”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇬🇧</span>
-                <div>
-                  <strong>Priya Patel</strong>
-                  <small>Master's in Data Science</small>
-                  <small>University of Edinburgh, UK</small>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “Their research support team helped me develop my PhD proposal and connect with potential supervisors.
-                The quality of their academic writing assistance is unmatched.”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇺🇸</span>
-                <div>
-                  <strong>James Wilson</strong>
-                  <small>PhD in Engineering</small>
-                  <small>MIT, USA</small>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “Beaconify didn't just help me get accepted — they prepared me for success. Their comprehensive support
-                gave me confidence throughout the entire process.”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇮🇪</span>
-                <div>
-                  <strong>Amara Okafor</strong>
-                  <small>Master's in International Business</small>
-                  <small>Trinity College Dublin, Ireland</small>
-                </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="rating">5.0 ★★★★★</div>
-              <p>
-                “The team's expertise in Malta's education system was incredible. They guided me through every
-                requirement and made the transition smooth and stress-free.”
-              </p>
-              <div class="testimonial-meta">
-                <span class="flag">🇲🇹</span>
-                <div>
-                  <strong>Ahmed Hassan</strong>
-                  <small>Master's in Finance</small>
-                  <small>University of Malta</small>
-                </div>
-              </div>
-            </article>
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Testimonials</p>
+            <h2 id="stories-title">Outcomes from students like you</h2>
+            <p>Representative results from the destinations Beaconify supports.</p>
           </div>
-          <button class="carousel-btn next" type="button" aria-label="Next testimonial">›</button>
-        </div>
-        <p class="stories-footer">Average rating: 4.9/5 from 500+ students</p>
-        <div class="stories-cta">
-          <a class="button primary" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
-            Join Them Today
-          </a>
+
+          <div class="testimonial-shell">
+            <button class="carousel-btn prev" type="button" aria-label="Previous testimonial">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="testimonial-track" aria-live="polite">
+              <article class="testimonial-card active">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  Beaconify made my dream of studying in Canada a reality. They handled everything from university
+                  selection to visa processing. I could not have done it without their guidance.
+                </blockquote>
+                <footer>
+                  <strong>Sarah Johnson</strong>
+                  <span>Master's in Computer Science · University of Toronto</span>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  The writing support team helped me craft an outstanding SOP that got me into my dream MBA program.
+                  Their attention to detail and personalized approach was exceptional.
+                </blockquote>
+                <footer>
+                  <strong>Michael Chen</strong>
+                  <span>MBA Program · University of Melbourne</span>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  From application to arrival, Beaconify was with me every step of the way. They even helped me secure
+                  a scholarship that covered 60% of my tuition fees.
+                </blockquote>
+                <footer>
+                  <strong>Priya Patel</strong>
+                  <span>Master's in Data Science · University of Edinburgh</span>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  Their research support team helped me develop my PhD proposal and connect with potential supervisors.
+                  The quality of their academic writing assistance is unmatched.
+                </blockquote>
+                <footer>
+                  <strong>James Wilson</strong>
+                  <span>PhD in Engineering · MIT</span>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  Beaconify did not just help me get accepted — they prepared me for success. Their comprehensive
+                  support gave me confidence throughout the entire process.
+                </blockquote>
+                <footer>
+                  <strong>Amara Okafor</strong>
+                  <span>Master's in International Business · Trinity College Dublin</span>
+                </footer>
+              </article>
+              <article class="testimonial-card">
+                <div class="rating" aria-label="5 out of 5 stars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <blockquote>
+                  The team's expertise in Malta's education system was incredible. They guided me through every
+                  requirement and made the transition smooth and stress-free.
+                </blockquote>
+                <footer>
+                  <strong>Ahmed Hassan</strong>
+                  <span>Master's in Finance · University of Malta</span>
+                </footer>
+              </article>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next testimonial">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-dots" role="tablist" aria-label="Testimonial slides"></div>
+          <p class="stories-footer">Average rating 4.9/5 from 500+ students</p>
         </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-inner">
+        <div class="container contact-inner">
           <div class="contact-copy">
-            <p class="eyebrow light">Ready for Your Journey?</p>
-            <h2 id="contact-title">
-              Ready to Pack
-              <span class="accent">Your Bags?</span>
-              <span class="sub">We'll Handle the Rest! ✈️</span>
-            </h2>
+            <p class="eyebrow light">Get started</p>
+            <h2 id="contact-title">Ready to begin your application?</h2>
             <p>
-              Join thousands of successful students who trusted Beaconify with their study abroad journey. From SOPs to
-              deadlines, everything is taken care of for you.
+              Tell us where you want to study and where you are in the process. We will map the next steps and handle
+              the work from there.
             </p>
             <ul class="contact-checklist">
               <li>98% success rate in university admissions</li>
-              <li>Average processing time: 4–6 weeks</li>
-              <li>100% secure and confidential process</li>
+              <li>Average processing time of 4–6 weeks</li>
+              <li>Secure, confidential process throughout</li>
             </ul>
-            <a class="button primary large" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
-              🚀 Register now
-            </a>
-            <div class="contact-direct">
-              <p>Or contact us directly:</p>
-              <a href="tel:+2348037006036">📞 +234 803 700 6036</a>
-              <small>Available 24/7 for consultations</small>
+            <div class="contact-actions">
+              <a class="button primary" href="https://forms.gle/uAXwLEXNaE4URHrh6" target="_blank" rel="noopener noreferrer">
+                Register now
+              </a>
+              <a class="button ghost light" href="tel:+2348037006036">+234 803 700 6036</a>
             </div>
+            <p class="contact-note">Free consultation included · Available for consultations daily</p>
           </div>
           <dl class="contact-stats">
-            <div><dt>500+</dt><dd>Students Placed</dd></div>
+            <div><dt>500+</dt><dd>Students placed</dd></div>
             <div><dt>6</dt><dd>Countries</dd></div>
-            <div><dt>98%</dt><dd>Success Rate</dd></div>
-            <div><dt>4.9</dt><dd>Average Rating</dd></div>
+            <div><dt>98%</dt><dd>Success rate</dd></div>
+            <div><dt>4.9</dt><dd>Average rating</dd></div>
           </dl>
         </div>
-        <p class="contact-note">🔒 Your information is secure and confidential • Free consultation included</p>
       </section>
     </main>
 
     <footer>
-      <div class="footer-grid">
+      <div class="container footer-grid">
         <div class="footer-brand">
           <a class="brand" href="#home" aria-label="Beaconify Limited home">
             <span class="brand-mark" aria-hidden="true">
               <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="20" fill="#1e3a8a" />
-                <circle cx="20" cy="20" r="12" stroke="white" stroke-width="2.5" fill="none" />
-                <circle cx="20" cy="20" r="4" fill="white" />
+                <circle cx="20" cy="20" r="20" fill="currentColor" />
+                <circle cx="20" cy="20" r="12" stroke="white" stroke-width="2" fill="none" />
+                <circle cx="20" cy="20" r="3.5" fill="white" />
               </svg>
             </span>
             <span class="brand-text">
@@ -474,23 +412,23 @@
             </span>
           </a>
           <p>
-            Your trusted partner for study abroad success. We handle your admission process so you can focus on packing
-            your bags for the journey ahead.
+            Your partner for study abroad admission, academic writing, and visa preparation — so you can focus on
+            preparing for the journey ahead.
           </p>
         </div>
         <div>
-          <h3>Our Services</h3>
+          <h3>Services</h3>
           <ul>
-            <li><a href="#services">University Matching</a></li>
-            <li><a href="#services">Application Support</a></li>
-            <li><a href="#services">Visa Assistance</a></li>
-            <li><a href="#writing">Academic Writing</a></li>
-            <li><a href="#writing">Research Support</a></li>
-            <li><a href="#services">Scholarship Guidance</a></li>
+            <li><a href="#services">University matching</a></li>
+            <li><a href="#services">Application support</a></li>
+            <li><a href="#services">Visa assistance</a></li>
+            <li><a href="#writing">Academic writing</a></li>
+            <li><a href="#writing">Research support</a></li>
+            <li><a href="#services">Scholarship guidance</a></li>
           </ul>
         </div>
         <div>
-          <h3>Study Destinations</h3>
+          <h3>Destinations</h3>
           <ul>
             <li><a href="#programs">United Kingdom</a></li>
             <li><a href="#programs">United States</a></li>
@@ -501,20 +439,20 @@
           </ul>
         </div>
         <div>
-          <h3>Get in Touch</h3>
+          <h3>Contact</h3>
           <ul class="footer-contact">
             <li><a href="tel:+2348037006036">+234 803 700 6036</a><small>Mon – Fri, 9AM – 6PM</small></li>
-            <li><a href="mailto:beaconifylimited@gmail.com">beaconifylimited@gmail.com</a><small>We reply within 24 hours</small></li>
-            <li><span>Nigeria Office</span><small>Lagos, Nigeria</small></li>
+            <li><a href="mailto:beaconifylimited@gmail.com">beaconifylimited@gmail.com</a><small>Reply within 24 hours</small></li>
+            <li><span>Lagos, Nigeria</span></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="container footer-bottom">
         <small>© <span id="year"></span> Beaconify Limited. All rights reserved.</small>
         <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
         </div>
       </div>
     </footer>

@@ -22,23 +22,23 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 const countryImages = {
   uk: {
     src: "https://images.unsplash.com/photo-1707065634977-ad779c889242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxveGZvcmQlMjB1bml2ZXJzaXR5JTIwY2FtcHVzJTIwVUt8ZW58MXx8fHwxNzU4MDE2OTYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    alt: "Oxford University campus UK",
+    alt: "Oxford University campus, United Kingdom",
   },
   usa: {
     src: "https://images.unsplash.com/photo-1733846559897-24709ae35c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXJ2YXJkJTIwdW5pdmVyc2l0eSUyMGNhbXB1cyUyMFVTQXxlbnwxfHx8fDE3NTgwMTY5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    alt: "Harvard University campus USA",
+    alt: "Harvard University campus, United States",
   },
   canada: {
     src: "https://images.unsplash.com/photo-1618255630366-f402c45736f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdG9yb250byUyMGNhbmFkYSUyMGNhbXB1c3xlbnwxfHx8fDE3NTgwMTY5NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    alt: "University of Toronto campus Canada",
+    alt: "University of Toronto campus, Canada",
   },
   australia: {
     src: "https://images.unsplash.com/photo-1717656604892-ac50747171c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwc3lkbmV5JTIwYXVzdHJhbGlhJTIwY2FtcHVzfGVufDF8fHx8MTc1ODAxNjk3OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    alt: "University of Sydney campus Australia",
+    alt: "University of Sydney campus, Australia",
   },
   ireland: {
     src: "https://images.unsplash.com/photo-1663942465101-18af0f5e7760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmluaXR5JTIwY29sbGVnZSUyMGR1YmxpbiUyMGlyZWxhbmR8ZW58MXx8fHwxNzU4MDE2OTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    alt: "Trinity College Dublin campus Ireland",
+    alt: "Trinity College Dublin campus, Ireland",
   },
   malta: {
     src: "https://images.unsplash.com/photo-1661193488322-7a1cb292b925?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwbWFsdGElMjBjYW1wdXMlMjBtZWRpdGVycmFuZWFufGVufDF8fHx8MTc1ODAxNjk4NXww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -69,13 +69,53 @@ countryTabs.forEach((tab) => {
 const cards = [...document.querySelectorAll(".testimonial-card")];
 const prevBtn = document.querySelector(".carousel-btn.prev");
 const nextBtn = document.querySelector(".carousel-btn.next");
+const dotsContainer = document.querySelector(".carousel-dots");
 let activeIndex = 0;
 
 function showTestimonial(index) {
   if (!cards.length) return;
+
   activeIndex = (index + cards.length) % cards.length;
   cards.forEach((card, i) => card.classList.toggle("active", i === activeIndex));
+  dotsContainer?.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === activeIndex);
+    dot.setAttribute("aria-selected", String(i === activeIndex));
+  });
 }
+
+cards.forEach((_, index) => {
+  const dot = document.createElement("button");
+  dot.type = "button";
+  dot.className = `carousel-dot${index === 0 ? " active" : ""}`;
+  dot.setAttribute("aria-label", `Show testimonial ${index + 1}`);
+  dot.setAttribute("role", "tab");
+  dot.setAttribute("aria-selected", String(index === 0));
+  dot.addEventListener("click", () => showTestimonial(index));
+  dotsContainer?.append(dot);
+});
 
 prevBtn?.addEventListener("click", () => showTestimonial(activeIndex - 1));
 nextBtn?.addEventListener("click", () => showTestimonial(activeIndex + 1));
+
+const navLinks = [...document.querySelectorAll(".desktop-nav a, .mobile-nav a")].filter(
+  (link) => link.getAttribute("href")?.startsWith("#"),
+);
+const sections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+function updateActiveNav() {
+  const offset = window.scrollY + 120;
+  let current = sections[0];
+
+  for (const section of sections) {
+    if (section.offsetTop <= offset) current = section;
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.getAttribute("href") === `#${current.id}`);
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+updateActiveNav();
