@@ -1000,7 +1000,7 @@ body > footer {
 }
 
 .footer-brand .brand-mark {
-  color: white;
+  color: var(--navy);
 }
 
 .footer-brand .brand-text strong {
@@ -1059,6 +1059,19 @@ body > footer a:hover {
 .footer-bottom small {
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.84rem;
+}
+
+.footer-credit {
+  font-size: 0.78rem;
+}
+
+.footer-credit a {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.footer-credit a:hover {
+  color: #fca5a5;
 }
 
 /* Responsive */
