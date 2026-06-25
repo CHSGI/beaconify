@@ -2,6 +2,8 @@ import "./styles.css";
 
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".mobile-nav");
+const header = document.querySelector(".site-header");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 toggle?.addEventListener("click", () => {
   const open = menu.classList.toggle("open");
@@ -18,6 +20,130 @@ menu?.addEventListener("click", (event) => {
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+function initPageReady() {
+  document.body.classList.add("js");
+  requestAnimationFrame(() => {
+    document.body.classList.add("is-ready");
+  });
+}
+
+function initHeaderScroll() {
+  const onScroll = () => {
+    header?.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+function initScrollReveal() {
+  const groups = [
+    { selector: ".section-head", variant: "reveal" },
+    { selector: ".service-grid article", variant: "reveal", stagger: 70 },
+    { selector: ".stats-row > div", variant: "reveal", stagger: 90 },
+    { selector: ".country-tabs", variant: "reveal-fade" },
+    { selector: ".country-showcase", variant: "reveal-scale" },
+    { selector: ".writing-intro", variant: "reveal" },
+    { selector: ".writing-grid article", variant: "reveal", stagger: 60 },
+    { selector: ".inline-stats > div", variant: "reveal", stagger: 80 },
+    { selector: ".testimonial-shell", variant: "reveal" },
+    { selector: ".carousel-dots", variant: "reveal-fade" },
+    { selector: ".stories-footer", variant: "reveal-fade" },
+    { selector: ".contact-copy", variant: "reveal" },
+    { selector: ".contact-checklist li", variant: "reveal", stagger: 70 },
+    { selector: ".contact-stats > div", variant: "reveal", stagger: 80 },
+    { selector: ".footer-grid > div", variant: "reveal", stagger: 70 },
+    { selector: ".footer-bottom", variant: "reveal-fade" },
+  ];
+
+  const revealElements = [];
+
+  groups.forEach(({ selector, variant, stagger = 0 }) => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.classList.add("reveal", variant);
+      if (stagger) {
+        element.style.setProperty("--reveal-delay", `${index * stagger}ms`);
+      }
+      revealElements.push(element);
+    });
+  });
+
+  const heroVisual = document.querySelector(".hero-visual");
+  if (heroVisual) revealElements.push(heroVisual);
+
+  if (prefersReducedMotion) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+}
+
+function parseStatValue(text) {
+  const trimmed = text.trim();
+  if (!/^[\d,.]/.test(trimmed) || trimmed.includes("/")) return null;
+
+  const match = trimmed.match(/^([\d,.]+)(.*)$/);
+  if (!match) return null;
+  return {
+    target: Number(match[1].replace(/,/g, "")),
+    suffix: match[2],
+    decimals: match[1].includes(".") ? 1 : 0,
+  };
+}
+
+function animateStat(element) {
+  const parsed = parseStatValue(element.textContent);
+  if (!parsed || Number.isNaN(parsed.target)) return;
+
+  const { target, suffix, decimals } = parsed;
+  const duration = 1200;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - (1 - progress) ** 3;
+    const value = target * eased;
+    element.textContent = `${decimals ? value.toFixed(decimals) : Math.round(value)}${suffix}`;
+
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+}
+
+function initStatCounters() {
+  const stats = document.querySelectorAll(
+    ".hero-stats dt, .stats-row dt, .inline-stats dt, .contact-stats dt",
+  );
+
+  if (prefersReducedMotion) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateStat(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 },
+  );
+
+  stats.forEach((stat) => observer.observe(stat));
+}
 
 const countryImages = {
   uk: {
@@ -61,8 +187,34 @@ countryTabs.forEach((tab) => {
     });
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
-    countryImage.src = data.src;
-    countryImage.alt = data.alt;
+
+    if (countryImage.getAttribute("src") === data.src) return;
+
+    countryImage.classList.add("is-fading");
+
+    window.setTimeout(() => {
+      let settled = false;
+
+      const settle = () => {
+        if (settled) return;
+        settled = true;
+        countryImage.classList.remove("is-fading");
+        countryImage.removeEventListener("load", onLoad);
+        countryImage.removeEventListener("error", onError);
+        window.clearTimeout(fallbackId);
+      };
+
+      const onLoad = () => settle();
+      const onError = () => settle();
+      const fallbackId = window.setTimeout(settle, 5000);
+
+      countryImage.addEventListener("load", onLoad);
+      countryImage.addEventListener("error", onError);
+      countryImage.src = data.src;
+      countryImage.alt = data.alt;
+
+      if (countryImage.complete) settle();
+    }, prefersReducedMotion ? 0 : 180);
   });
 });
 
@@ -102,7 +254,8 @@ const navLinks = [...document.querySelectorAll(".desktop-nav a, .mobile-nav a")]
 );
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
+  .filter(Boolean)
+  .sort((a, b) => a.offsetTop - b.offsetTop);
 
 function updateActiveNav() {
   const offset = window.scrollY + 120;
@@ -119,3 +272,8 @@ function updateActiveNav() {
 
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 updateActiveNav();
+
+initPageReady();
+initHeaderScroll();
+initScrollReveal();
+initStatCounters();
